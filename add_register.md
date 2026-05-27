@@ -3,9 +3,9 @@ For shorthand, when we say A += B, it really means A = A + B.
 
 Here are some useful instructions:
 
-add reg1, reg2 <=> reg1 += reg2
-sub reg1, reg2 <=> reg1 -= reg2
-imul reg1, reg2 <=> reg1 *= reg2
+<img width="393" height="103" alt="image" src="https://github.com/user-attachments/assets/f67419a3-030b-49b6-8281-848814df88fd" />
+
+
 div is more complicated, and we will discuss it later. Note: all regX can be replaced by a constant or memory location.
 
 Do the following:
