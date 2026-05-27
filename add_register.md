@@ -22,6 +22,8 @@ _start:
     add rdi, 0x331337
 ```
 Now the interseting thing is that u cant give register a value it can only copy values so the code becomes a bit different
+
 `add rdi, 0x331337`
+
 now what this does is rdi += 0x331337, so rdi = rdi(original value that it had) + 0x331337
 
