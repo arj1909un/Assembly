@@ -23,11 +23,11 @@ In x86, we can access the thing at a memory location, called dereferencing, like
 
 This also works with things in registers:
 
-* mov rax, [rdi]         <=>     Moves the thing stored at the address of what rdi holds to rax
+* mov rax, [rdi]         <=>    rdi holds an address. Go to that address, take the value there, and put it in rax
 
 This works the same for writing to memory:
 
-* mov [rax], rdi         <=>     Moves rdi to the address of what rax holds.
+* mov [rax], rdi         <=>     Moves rdi to the address of rax.
 
 So if rax was 0xdeadbeef, then rdi would get stored at the address 0xdeadbeef:
 
