@@ -1,0 +1,50 @@
+# solve:
+```
+asm_bytes = asm("""
+    mov x4, #0x4000
+    movk x4, #0x4000, lsl #16
+    movk x4, #0x1337, lsl #32
+    ldr x0, [x4]
+
+    mov x3, #0x4008
+    movk x3, #0x4000, lsl #16
+    movk x3, #0x1337, lsl #32
+    ldr x1, [x3]
+
+    add x2, x0, x1
+
+    mov x5, #0x4010
+    movk x5, #0x4000, lsl #16
+    movk x5, #0x1337, lsl #32
+    str x2, [x5]
+  """)
+```
+# desc:
+Memory addresses cannot be directly accessed in aarch64.  Only registers can be operated on.
+Values must be loaded from memory to a register with ldr and written back to memory via str
+For example, to increment a value located at memory address 0x1337, the following instructions
+would be needed:
+
+        mov x1, #0x1337
+        ldr x0, [x1]
+        add x0, x0, #1
+        str x0, [x1]
+
+Locations memory addresses can also be offset from.  Example:
+        mov x1, #0x4000
+        ldr x0, [x1, #8]
+
+Would load 8 bytes stored at 0x4008 into x0
+
+Please perform the following:
+        1. Place the value stored at 0x133740004000 into X0
+        2. Place the value stored at 0x133740004008 into X1
+        3. Add these values and store the result at address 0x133740004010
+Make sure:
+        - The value in X0 is the original value stored at 0x133740004000
+        - The value in X1 is the original value stored at 0x133740004008
+        - [0x133740004010] now has the addition's result.
+
+We will now set the following in preparation for your code:
+        [0x133740004000] = 0x1613b5
+        [0x133740004008] = 0x166d41
