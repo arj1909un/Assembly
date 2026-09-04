@@ -13,3 +13,4 @@ loop:
 ```
 # Desc:
 Same as L11 but we need 6 instructions MAX
+in this we remove the counter specific instruction and a new opcode SUBS which subtracts and sets flag in 1 clock cycle.
